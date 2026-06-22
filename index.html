@@ -63,14 +63,14 @@
 
         <div class="hero-showcase" aria-label="AI navigator preview">
           <div class="ai-card">
-            <div class="ai-portrait" aria-hidden="true">
-              <div class="ear ear-left"></div>
-              <div class="ear ear-right"></div>
-              <div class="face">
-                <span class="eye eye-left"></span>
-                <span class="eye eye-right"></span>
-                <span class="mouth"></span>
-              </div>
+            <div class="ai-portrait">
+              <img
+                class="navigator-frame"
+                src="assets/ai-navigator/catgirl_00.png"
+                alt="AI navigator cat girl character"
+                width="161"
+                height="320"
+              >
             </div>
             <div class="speech-bubble">
               <span class="bubble-label" data-i18n="aiLabel">AI Navigator</span>
@@ -206,10 +206,23 @@
 
     <aside class="ai-guide" aria-label="AI navigator">
       <button class="ai-guide-button" type="button" aria-expanded="false">
-        <span class="mini-face" aria-hidden="true"></span>
+        <img
+          class="mini-navigator navigator-frame"
+          src="assets/ai-navigator/catgirl_00.png"
+          alt=""
+          width="40"
+          height="80"
+        >
         <span data-i18n="guideButton">Guide</span>
       </button>
       <div class="ai-guide-panel">
+        <img
+          class="guide-navigator navigator-frame"
+          src="assets/ai-navigator/catgirl_00.png"
+          alt=""
+          width="72"
+          height="143"
+        >
         <p data-i18n="guideText">こんにちは。作品と実績を順番に案内します。</p>
         <div class="guide-links">
           <a href="#achievements" data-i18n="guideStats">実績</a>

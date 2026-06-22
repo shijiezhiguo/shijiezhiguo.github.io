@@ -196,6 +196,10 @@ const langButtons = document.querySelectorAll(".lang-button");
 const guide = document.querySelector(".ai-guide");
 const guideButton = document.querySelector(".ai-guide-button");
 const revealItems = document.querySelectorAll(".reveal");
+const navigatorFrames = Array.from({ length: 25 }, (_, index) =>
+  `assets/ai-navigator/catgirl_${String(index).padStart(2, "0")}.png`
+);
+const navigatorImages = document.querySelectorAll(".navigator-frame");
 
 function setLanguage(lang) {
   const dictionary = translations[lang] || translations.ja;
@@ -257,3 +261,16 @@ const observer = new IntersectionObserver(
 revealItems.forEach((item) => observer.observe(item));
 
 setLanguage(localStorage.getItem("portfolio-language") || "ja");
+
+navigatorFrames.forEach((src) => {
+  const image = new Image();
+  image.src = src;
+});
+
+let navigatorFrameIndex = 0;
+setInterval(() => {
+  navigatorFrameIndex = (navigatorFrameIndex + 1) % navigatorFrames.length;
+  navigatorImages.forEach((image) => {
+    image.src = navigatorFrames[navigatorFrameIndex];
+  });
+}, 120);
