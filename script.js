@@ -196,8 +196,8 @@ const langButtons = document.querySelectorAll(".lang-button");
 const guide = document.querySelector(".ai-guide");
 const guideButton = document.querySelector(".ai-guide-button");
 const revealItems = document.querySelectorAll(".reveal");
-const navigatorAssetVersion = "802-stand";
-const navigatorFrames = Array.from({ length: 25 }, (_, index) =>
+const navigatorAssetVersion = "nav1-80";
+const navigatorFrames = Array.from({ length: 80 }, (_, index) =>
   `assets/ai-navigator/catgirl_${String(index).padStart(2, "0")}.png?v=${navigatorAssetVersion}`
 );
 const navigatorImages = document.querySelectorAll(".navigator-frame");
