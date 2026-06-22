@@ -495,7 +495,7 @@ h3 {
   right: 0;
   bottom: 0;
   z-index: 30;
-  width: min(300px, 100vw);
+  width: min(452px, 100vw);
 }
 
 .ai-guide-button {
@@ -522,6 +522,8 @@ h3 {
 
 .ai-guide-panel {
   position: relative;
+  width: min(300px, calc(100vw - 144px));
+  margin: 0 144px 0 auto;
   padding: 16px;
   border: 1px solid #ffb6c9;
   border-radius: var(--radius) 0 0 0;
@@ -530,9 +532,9 @@ h3 {
 }
 
 .guide-navigator {
-  position: absolute;
+  position: fixed;
   right: 0;
-  bottom: calc(100% - 20px);
+  bottom: 0;
   width: 144px;
   filter: drop-shadow(0 10px 14px rgba(255, 141, 177, 0.22));
 }
@@ -544,8 +546,6 @@ h3 {
 }
 
 .ai-guide-panel p {
-  min-height: 72px;
-  padding-right: 128px;
   margin-bottom: 12px;
   color: var(--muted);
   font-size: 0.92rem;
@@ -635,7 +635,7 @@ h3 {
   }
 
   .ai-guide {
-    width: min(260px, 100vw);
+    width: 100vw;
   }
 }
 
@@ -680,8 +680,10 @@ h3 {
   }
 
   .ai-guide {
+    left: 0;
     right: 0;
     bottom: 0;
+    width: auto;
   }
 
   .ai-guide-button {
@@ -691,6 +693,8 @@ h3 {
   .ai-guide-panel {
     display: none;
     margin-top: 8px;
+    width: calc(100% - 144px);
+    margin-right: 144px;
     border-radius: var(--radius) 0 0 0;
   }
 
