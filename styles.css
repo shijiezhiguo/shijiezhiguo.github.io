@@ -492,10 +492,10 @@ h3 {
 
 .ai-guide {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: 0;
+  bottom: 0;
   z-index: 30;
-  width: min(300px, calc(100vw - 36px));
+  width: min(300px, 100vw);
 }
 
 .ai-guide-button {
@@ -524,15 +524,15 @@ h3 {
   position: relative;
   padding: 16px;
   border: 1px solid #ffb6c9;
-  border-radius: var(--radius);
+  border-radius: var(--radius) 0 0 0;
   background: #ffeaf2;
   box-shadow: var(--shadow);
 }
 
 .guide-navigator {
   position: absolute;
-  right: 8px;
-  bottom: calc(100% - 24px);
+  right: 0;
+  bottom: calc(100% - 20px);
   width: 144px;
   filter: drop-shadow(0 10px 14px rgba(255, 141, 177, 0.22));
 }
@@ -635,7 +635,7 @@ h3 {
   }
 
   .ai-guide {
-    width: min(260px, calc(100vw - 28px));
+    width: min(260px, 100vw);
   }
 }
 
@@ -680,8 +680,8 @@ h3 {
   }
 
   .ai-guide {
-    right: 14px;
-    bottom: 14px;
+    right: 0;
+    bottom: 0;
   }
 
   .ai-guide-button {
@@ -691,6 +691,7 @@ h3 {
   .ai-guide-panel {
     display: none;
     margin-top: 8px;
+    border-radius: var(--radius) 0 0 0;
   }
 
   .ai-guide.is-open .ai-guide-panel {
