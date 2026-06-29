@@ -83,6 +83,10 @@ body[data-page="home"] .site-background {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 24%;
+}
+
+body[data-page="home"] .site-background video {
   object-position: center center;
 }
 
@@ -908,6 +912,10 @@ main,
   }
 
   .site-background video {
+    object-position: 62% 24%;
+  }
+
+  body[data-page="home"] .site-background video {
     object-position: 62% center;
   }
 

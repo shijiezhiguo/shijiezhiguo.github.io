@@ -200,6 +200,14 @@ const navigatorFrames = Array.from({ length: 80 }, (_, index) =>
 let currentLanguage = localStorage.getItem("portfolio-language") || "ja";
 let currentTrack = 0;
 let musicState = "ready";
+const savedTrack = Number.parseInt(localStorage.getItem("portfolio-music-track"), 10);
+const savedMusicTime = Number.parseFloat(localStorage.getItem("portfolio-music-time"));
+const savedPlaybackState = localStorage.getItem("portfolio-music-playback");
+const shouldResumeMusic = savedPlaybackState !== "paused";
+
+if (Number.isInteger(savedTrack) && savedTrack >= 0 && savedTrack < tracks.length) {
+  currentTrack = savedTrack;
+}
 
 function renderShell() {
   document.querySelector("#site-header").innerHTML = `
@@ -253,10 +261,10 @@ function renderShell() {
     <aside class="music-dock">
       <button class="music-dock-toggle" type="button" aria-expanded="false">BGM</button>
       <section class="music-player-panel">
-        <audio id="background-music" src="${tracks[0]}" preload="metadata" autoplay></audio>
+        <audio id="background-music" src="${tracks[currentTrack]}" preload="metadata"></audio>
         <div class="music-meta">
           <span class="music-label" data-i18n="musicLabel">BGM</span>
-          <strong id="music-track">BGM 01</strong>
+          <strong id="music-track">BGM ${String(currentTrack + 1).padStart(2, "0")}</strong>
           <span id="music-status" class="music-status" aria-live="polite"></span>
         </div>
         <div class="music-controls">
@@ -346,10 +354,17 @@ function playMusic() {
   }
 }
 
+function persistMusicState(isPlaying = !music.paused && !music.ended) {
+  localStorage.setItem("portfolio-music-track", String(currentTrack));
+  localStorage.setItem("portfolio-music-time", String(Number.isFinite(music.currentTime) ? music.currentTime : 0));
+  localStorage.setItem("portfolio-music-playback", isPlaying ? "playing" : "paused");
+}
+
 function changeTrack(offset) {
   currentTrack = (currentTrack + offset + tracks.length) % tracks.length;
   music.src = tracks[currentTrack];
   musicTrack.textContent = `BGM ${String(currentTrack + 1).padStart(2, "0")}`;
+  persistMusicState(true);
   playMusic();
 }
 
@@ -427,14 +442,34 @@ musicDockToggle.addEventListener("click", () => {
 });
 musicPrevious.addEventListener("click", () => changeTrack(-1));
 musicNext.addEventListener("click", () => changeTrack(1));
-musicToggle.addEventListener("click", () => music.paused ? playMusic() : music.pause());
+musicToggle.addEventListener("click", () => {
+  if (music.paused) playMusic();
+  else music.pause();
+});
 musicVolume.addEventListener("input", () => {
   music.volume = Number(musicVolume.value);
   localStorage.setItem("portfolio-music-volume", musicVolume.value);
 });
-music.addEventListener("play", () => setMusicState("playing"));
-music.addEventListener("pause", () => { if (!music.ended) setMusicState("paused"); });
+music.addEventListener("play", () => {
+  setMusicState("playing");
+  persistMusicState(true);
+});
+music.addEventListener("pause", () => {
+  if (music.ended) return;
+  setMusicState("paused");
+  if (document.visibilityState === "visible") persistMusicState(false);
+});
+music.addEventListener("timeupdate", () => {
+  localStorage.setItem("portfolio-music-time", String(music.currentTime));
+});
 music.addEventListener("ended", () => changeTrack(1));
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link || link.target) return;
+  const destination = new URL(link.href, window.location.href);
+  if (destination.origin === window.location.origin) persistMusicState();
+}, { capture: true });
+window.addEventListener("pagehide", () => persistMusicState());
 
 navigatorCharacter.addEventListener("click", () => {
   const open = guide.classList.toggle("is-open");
@@ -468,6 +503,17 @@ const savedVolume = Number.parseFloat(localStorage.getItem("portfolio-music-volu
 music.volume = Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1 ? savedVolume : 0.35;
 musicVolume.value = String(music.volume);
 
+function restoreMusic() {
+  if (Number.isFinite(savedMusicTime) && savedMusicTime > 0 && savedMusicTime < music.duration) {
+    music.currentTime = savedMusicTime;
+  }
+  if (shouldResumeMusic) playMusic();
+  else setMusicState("paused");
+}
+
+if (music.readyState >= 1) restoreMusic();
+else music.addEventListener("loadedmetadata", restoreMusic, { once: true });
+
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) backgroundVideo.pause();
 
 const observer = new IntersectionObserver((entries) => {
@@ -491,4 +537,3 @@ setInterval(() => {
 
 markActiveNavigation();
 setLanguage(currentLanguage);
-playMusic();
