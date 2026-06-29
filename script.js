@@ -73,6 +73,8 @@ const translations = {
     musicNext: "次の曲",
     musicVolume: "音量",
     musicPlayer: "BGMプレイヤー",
+    backgroundPlay: "背景動画を再生",
+    backgroundPause: "背景動画を一時停止",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -150,6 +152,8 @@ const translations = {
     musicNext: "Next track",
     musicVolume: "Volume",
     musicPlayer: "Background music player",
+    backgroundPlay: "Play background video",
+    backgroundPause: "Pause background video",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -227,6 +231,8 @@ const translations = {
     musicNext: "下一首",
     musicVolume: "音量",
     musicPlayer: "背景音乐播放器",
+    backgroundPlay: "播放背景视频",
+    backgroundPause: "暂停背景视频",
     footerText: "© 2026 游戏创作者作品集",
     backTop: "回到顶部",
   },
@@ -245,6 +251,8 @@ const musicPrevious = document.querySelector("#music-previous");
 const musicToggle = document.querySelector("#music-toggle");
 const musicNext = document.querySelector("#music-next");
 const musicVolume = document.querySelector("#music-volume");
+const backgroundVideo = document.querySelector("#background-video");
+const backgroundToggle = document.querySelector(".background-toggle");
 const revealItems = document.querySelectorAll(".reveal");
 const navigatorAssetVersion = "nav1-80";
 const navigatorFrames = Array.from({ length: 80 }, (_, index) =>
@@ -280,6 +288,16 @@ function updateMusicText() {
   musicVolume.setAttribute("aria-label", dictionary.musicVolume);
   musicVolume.title = dictionary.musicVolume;
   musicStatus.textContent = dictionary[stateKeys[musicState]];
+}
+
+function updateBackgroundToggle() {
+  const dictionary = translations[currentLanguage] || translations.ja;
+  const isPlaying = !backgroundVideo.paused;
+  const label = dictionary[isPlaying ? "backgroundPause" : "backgroundPlay"];
+
+  backgroundToggle.setAttribute("aria-label", label);
+  backgroundToggle.title = label;
+  backgroundToggle.querySelector("span").textContent = isPlaying ? "❚❚" : "▶";
 }
 
 function setMusicState(state) {
@@ -322,6 +340,7 @@ function setLanguage(lang) {
 
   localStorage.setItem("portfolio-language", lang);
   updateMusicText();
+  updateBackgroundToggle();
 }
 
 window.addEventListener("scroll", () => {
@@ -372,6 +391,21 @@ music.addEventListener("pause", () => {
   }
 });
 music.addEventListener("ended", () => changeMusicTrack(1));
+
+backgroundToggle.addEventListener("click", () => {
+  if (backgroundVideo.paused) {
+    backgroundVideo.play().catch(() => updateBackgroundToggle());
+  } else {
+    backgroundVideo.pause();
+  }
+});
+
+backgroundVideo.addEventListener("play", updateBackgroundToggle);
+backgroundVideo.addEventListener("pause", updateBackgroundToggle);
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  backgroundVideo.pause();
+}
 
 const observer = new IntersectionObserver(
   (entries) => {

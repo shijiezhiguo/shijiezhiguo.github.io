@@ -14,9 +14,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=music-player">
+    <link rel="stylesheet" href="styles.css?v=video-background">
   </head>
   <body>
+    <div class="site-background" aria-hidden="true">
+      <video id="background-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/mp4/background_player_01.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Portfolio home">
         <span class="brand-mark">AI</span>
@@ -38,6 +44,10 @@
           <a href="#gallery" data-i18n="navGallery">Gallery</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
+
+        <button class="background-toggle" type="button">
+          <span aria-hidden="true">❚❚</span>
+        </button>
 
         <div class="language-switcher" aria-label="Language selector">
           <button class="lang-button is-active" type="button" data-lang="ja">JP</button>
@@ -61,26 +71,10 @@
           </div>
         </div>
 
-        <div class="hero-showcase" aria-label="AI navigator preview">
-          <div class="ai-card">
-            <div class="ai-portrait">
-              <img
-                class="navigator-frame"
-                src="assets/ai-navigator/catgirl_00.png?v=nav1-80"
-                alt="AI navigator cat girl character"
-                width="161"
-                height="320"
-              >
-            </div>
-            <div class="speech-bubble">
-              <span class="bubble-label" data-i18n="aiLabel">AI Navigator</span>
-              <p data-i18n="aiHeroText">実績、作品、制作スタイルを分かりやすく案内します。</p>
-            </div>
-          </div>
-        </div>
       </section>
 
-      <section id="achievements" class="section stats-section reveal">
+      <div class="content-surface">
+        <section id="achievements" class="section stats-section reveal">
         <div class="section-heading compact">
           <p class="section-kicker" data-i18n="statsKicker">Achievements</p>
           <h2 data-i18n="statsTitle">数字で見る制作経験</h2>
@@ -102,9 +96,9 @@
             <p data-i18n="statRevenueText">作品の成果を数値で追いながら改善。</p>
           </article>
         </div>
-      </section>
+        </section>
 
-      <section id="about" class="section about-section reveal">
+        <section id="about" class="section about-section reveal">
         <div>
           <p class="section-kicker" data-i18n="aboutKicker">About</p>
           <h2 data-i18n="aboutTitle">可愛く、分かりやすく、遊びやすい体験を作る。</h2>
@@ -125,9 +119,9 @@
             <span>UI Flow</span>
           </div>
         </div>
-      </section>
+        </section>
 
-      <section id="works" class="section reveal">
+        <section id="works" class="section reveal">
         <div class="section-heading">
           <p class="section-kicker" data-i18n="worksKicker">Selected Works</p>
           <h2 data-i18n="worksTitle">代表作品カテゴリ</h2>
@@ -164,9 +158,9 @@
             </div>
           </article>
         </div>
-      </section>
+        </section>
 
-      <section id="gallery" class="section gallery-section reveal">
+        <section id="gallery" class="section gallery-section reveal">
         <div class="section-heading compact">
           <p class="section-kicker" data-i18n="galleryKicker">Gallery</p>
           <h2 data-i18n="galleryTitle">制作スタイル</h2>
@@ -188,9 +182,9 @@
             <p data-i18n="galleryThreeText">AIナビゲーターのような親しみやすい演出で記憶に残す。</p>
           </article>
         </div>
-      </section>
+        </section>
 
-      <section id="contact" class="section contact-section reveal">
+        <section id="contact" class="section contact-section reveal">
         <p class="section-kicker" data-i18n="contactKicker">Contact</p>
         <h2 data-i18n="contactTitle">作品や制作について、お気軽にご連絡ください。</h2>
         <p data-i18n="contactText">
@@ -201,7 +195,8 @@
           <a href="https://github.com/shijiezhiguo" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://shijiezhiguo.github.io/" target="_blank" rel="noreferrer">Portfolio</a>
         </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <section class="music-player" aria-label="Background music player">
@@ -266,6 +261,6 @@
       <a href="#top" data-i18n="backTop">Back to top</a>
     </footer>
 
-    <script src="script.js?v=music-player"></script>
+    <script src="script.js?v=video-background"></script>
   </body>
 </html>
