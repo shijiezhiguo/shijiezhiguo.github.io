@@ -498,6 +498,116 @@ h3 {
   width: min(452px, 100vw);
 }
 
+.music-player {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 29;
+  width: min(292px, calc(100vw - 36px));
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.music-player audio {
+  display: none;
+}
+
+.music-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0 8px;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.music-label {
+  color: var(--accent-deep);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+#music-track {
+  overflow: hidden;
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.music-status {
+  grid-column: 2;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.music-controls {
+  display: grid;
+  grid-template-columns: 32px 38px 32px minmax(92px, 1fr);
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.music-icon-button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--accent-deep);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.music-icon-button:hover {
+  border-color: var(--accent);
+  background: var(--bg-soft);
+}
+
+.music-toggle {
+  width: 38px;
+  height: 38px;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.music-toggle:hover {
+  background: var(--accent-strong);
+  color: #ffffff;
+}
+
+.volume-control {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.volume-control input {
+  width: 100%;
+  min-width: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 .ai-guide-button {
   display: none;
   width: 100%;
@@ -684,6 +794,18 @@ h3 {
     right: 0;
     bottom: 0;
     width: auto;
+  }
+
+  .music-player {
+    left: 14px;
+    bottom: 58px;
+    width: min(292px, calc(100vw - 28px));
+    transition: opacity 160ms ease, visibility 160ms ease;
+  }
+
+  .music-player.is-guide-open {
+    visibility: hidden;
+    opacity: 0;
   }
 
   .ai-guide-button {

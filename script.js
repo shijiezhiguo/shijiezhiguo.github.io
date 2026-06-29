@@ -61,6 +61,18 @@ const translations = {
     guideStats: "実績",
     guideWorks: "作品",
     guideContact: "連絡",
+    musicLabel: "BGM",
+    musicVolumeShort: "音量",
+    musicReady: "再生準備完了",
+    musicPlaying: "再生中",
+    musicPaused: "一時停止中",
+    musicBlocked: "再生ボタンを押してください",
+    musicPrevious: "前の曲",
+    musicPlay: "再生",
+    musicPause: "一時停止",
+    musicNext: "次の曲",
+    musicVolume: "音量",
+    musicPlayer: "BGMプレイヤー",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -126,6 +138,18 @@ const translations = {
     guideStats: "Stats",
     guideWorks: "Works",
     guideContact: "Contact",
+    musicLabel: "BGM",
+    musicVolumeShort: "VOL",
+    musicReady: "Ready to play",
+    musicPlaying: "Playing",
+    musicPaused: "Paused",
+    musicBlocked: "Press play to start",
+    musicPrevious: "Previous track",
+    musicPlay: "Play",
+    musicPause: "Pause",
+    musicNext: "Next track",
+    musicVolume: "Volume",
+    musicPlayer: "Background music player",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -191,6 +215,18 @@ const translations = {
     guideStats: "实绩",
     guideWorks: "作品",
     guideContact: "联系",
+    musicLabel: "背景音乐",
+    musicVolumeShort: "音量",
+    musicReady: "准备播放",
+    musicPlaying: "播放中",
+    musicPaused: "已暂停",
+    musicBlocked: "请点击播放按钮",
+    musicPrevious: "上一首",
+    musicPlay: "播放",
+    musicPause: "暂停",
+    musicNext: "下一首",
+    musicVolume: "音量",
+    musicPlayer: "背景音乐播放器",
     footerText: "© 2026 游戏创作者作品集",
     backTop: "回到顶部",
   },
@@ -201,15 +237,74 @@ const menuToggle = document.querySelector(".menu-toggle");
 const langButtons = document.querySelectorAll(".lang-button");
 const guide = document.querySelector(".ai-guide");
 const guideButton = document.querySelector(".ai-guide-button");
+const musicPlayer = document.querySelector(".music-player");
+const music = document.querySelector("#background-music");
+const musicTrack = document.querySelector("#music-track");
+const musicStatus = document.querySelector("#music-status");
+const musicPrevious = document.querySelector("#music-previous");
+const musicToggle = document.querySelector("#music-toggle");
+const musicNext = document.querySelector("#music-next");
+const musicVolume = document.querySelector("#music-volume");
 const revealItems = document.querySelectorAll(".reveal");
 const navigatorAssetVersion = "nav1-80";
 const navigatorFrames = Array.from({ length: 80 }, (_, index) =>
   `assets/ai-navigator/catgirl_${String(index).padStart(2, "0")}.png?v=${navigatorAssetVersion}`
 );
 const navigatorImages = document.querySelectorAll(".navigator-frame");
+const musicTracks = [
+  "assets/bgm/BGM_BASIC_001.mp3",
+  "assets/bgm/BGM_BASIC_002.mp3",
+  "assets/bgm/BGM_BASIC_003.mp3",
+];
+let currentLanguage = "ja";
+let currentMusicTrack = 0;
+let musicState = "ready";
+
+function updateMusicText() {
+  const dictionary = translations[currentLanguage] || translations.ja;
+  const isPlaying = musicState === "playing";
+  const stateKeys = {
+    ready: "musicReady",
+    playing: "musicPlaying",
+    paused: "musicPaused",
+    blocked: "musicBlocked",
+  };
+
+  musicPlayer.setAttribute("aria-label", dictionary.musicPlayer);
+  musicPrevious.setAttribute("aria-label", dictionary.musicPrevious);
+  musicPrevious.title = dictionary.musicPrevious;
+  musicToggle.setAttribute("aria-label", dictionary[isPlaying ? "musicPause" : "musicPlay"]);
+  musicToggle.title = dictionary[isPlaying ? "musicPause" : "musicPlay"];
+  musicNext.setAttribute("aria-label", dictionary.musicNext);
+  musicNext.title = dictionary.musicNext;
+  musicVolume.setAttribute("aria-label", dictionary.musicVolume);
+  musicVolume.title = dictionary.musicVolume;
+  musicStatus.textContent = dictionary[stateKeys[musicState]];
+}
+
+function setMusicState(state) {
+  musicState = state;
+  musicToggle.querySelector("span").textContent = state === "playing" ? "❚❚" : "▶";
+  updateMusicText();
+}
+
+function playMusic() {
+  const playAttempt = music.play();
+  if (playAttempt) {
+    playAttempt.catch(() => setMusicState("blocked"));
+  }
+}
+
+function changeMusicTrack(offset) {
+  currentMusicTrack = (currentMusicTrack + offset + musicTracks.length) % musicTracks.length;
+  music.src = musicTracks[currentMusicTrack];
+  musicTrack.textContent = `BGM ${String(currentMusicTrack + 1).padStart(2, "0")}`;
+  playMusic();
+}
 
 function setLanguage(lang) {
   const dictionary = translations[lang] || translations.ja;
+  currentLanguage = translations[lang] ? lang : "ja";
 
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -226,6 +321,7 @@ function setLanguage(lang) {
   });
 
   localStorage.setItem("portfolio-language", lang);
+  updateMusicText();
 }
 
 window.addEventListener("scroll", () => {
@@ -251,7 +347,31 @@ langButtons.forEach((button) => {
 guideButton.addEventListener("click", () => {
   const isOpen = guide.classList.toggle("is-open");
   guideButton.setAttribute("aria-expanded", String(isOpen));
+  musicPlayer.classList.toggle("is-guide-open", isOpen);
 });
+
+musicPrevious.addEventListener("click", () => changeMusicTrack(-1));
+musicNext.addEventListener("click", () => changeMusicTrack(1));
+musicToggle.addEventListener("click", () => {
+  if (music.paused) {
+    playMusic();
+  } else {
+    music.pause();
+  }
+});
+
+musicVolume.addEventListener("input", () => {
+  music.volume = Number(musicVolume.value);
+  localStorage.setItem("portfolio-music-volume", musicVolume.value);
+});
+
+music.addEventListener("play", () => setMusicState("playing"));
+music.addEventListener("pause", () => {
+  if (!music.ended) {
+    setMusicState("paused");
+  }
+});
+music.addEventListener("ended", () => changeMusicTrack(1));
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -267,7 +387,13 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
+const savedMusicVolume = Number.parseFloat(localStorage.getItem("portfolio-music-volume"));
+music.volume = Number.isFinite(savedMusicVolume) && savedMusicVolume >= 0 && savedMusicVolume <= 1
+  ? savedMusicVolume
+  : 0.35;
+musicVolume.value = String(music.volume);
 setLanguage(localStorage.getItem("portfolio-language") || "ja");
+playMusic();
 
 navigatorFrames.forEach((src) => {
   const image = new Image();

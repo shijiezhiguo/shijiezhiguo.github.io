@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=guide-character-corner">
+    <link rel="stylesheet" href="styles.css?v=music-player">
   </head>
   <body>
     <header class="site-header">
@@ -204,6 +204,35 @@
       </section>
     </main>
 
+    <section class="music-player" aria-label="Background music player">
+      <audio
+        id="background-music"
+        src="assets/bgm/BGM_BASIC_001.mp3"
+        preload="metadata"
+        autoplay
+      ></audio>
+      <div class="music-meta">
+        <span class="music-label" data-i18n="musicLabel">BGM</span>
+        <strong id="music-track">BGM 01</strong>
+        <span id="music-status" class="music-status" aria-live="polite">再生準備完了</span>
+      </div>
+      <div class="music-controls">
+        <button id="music-previous" class="music-icon-button" type="button">
+          <span aria-hidden="true">|◀</span>
+        </button>
+        <button id="music-toggle" class="music-icon-button music-toggle" type="button">
+          <span aria-hidden="true">▶</span>
+        </button>
+        <button id="music-next" class="music-icon-button" type="button">
+          <span aria-hidden="true">▶|</span>
+        </button>
+        <label class="volume-control">
+          <span data-i18n="musicVolumeShort">VOL</span>
+          <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.35">
+        </label>
+      </div>
+    </section>
+
     <aside class="ai-guide" aria-label="AI navigator">
       <button class="ai-guide-button" type="button" aria-expanded="false">
         <img
@@ -237,6 +266,6 @@
       <a href="#top" data-i18n="backTop">Back to top</a>
     </footer>
 
-    <script src="script.js?v=stats-guide-large"></script>
+    <script src="script.js?v=music-player"></script>
   </body>
 </html>
