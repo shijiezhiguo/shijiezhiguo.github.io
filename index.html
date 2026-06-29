@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=video-background">
+    <link rel="stylesheet" href="styles.css?v=dashboard-layout">
   </head>
   <body>
     <div class="site-background" aria-hidden="true">
@@ -70,163 +70,189 @@
             <a class="button secondary" href="#contact" data-i18n="heroSecondary">連絡する</a>
           </div>
         </div>
-
       </section>
 
       <div class="content-surface">
-        <section id="achievements" class="section stats-section reveal">
-        <div class="section-heading compact">
-          <p class="section-kicker" data-i18n="statsKicker">Achievements</p>
-          <h2 data-i18n="statsTitle">数字で見る制作経験</h2>
-        </div>
-        <div class="stats-grid">
-          <article class="stat-card">
-            <strong>15+</strong>
-            <span data-i18n="statMaps">Warcraft III maps</span>
-            <p data-i18n="statMapsText">塔防、防守、RPG、生存など、多様なジャンルを制作。</p>
-          </article>
-          <article class="stat-card mint">
-            <strong data-i18n="statCommercialNumber">4</strong>
-            <span data-i18n="statCommercial">Commercialized works</span>
-            <p data-i18n="statCommercialText">公開・運営・収益化を意識した作品づくりを経験。</p>
-          </article>
-          <article class="stat-card">
-            <strong data-i18n="statRevenueNumber">430万JPY+</strong>
-            <span data-i18n="statRevenue">Revenue / results</span>
-            <p data-i18n="statRevenueText">作品の成果を数値で追いながら改善。</p>
-          </article>
-        </div>
-        </section>
+        <div class="dashboard-shell">
+          <aside class="dashboard-column profile-column">
+            <section id="about" class="dashboard-card profile-card reveal">
+              <p class="section-kicker" data-i18n="aboutKicker">About</p>
+              <h2 data-i18n="aboutTitle">可愛く、分かりやすく、遊びやすい体験を作る。</h2>
+              <div class="about-copy">
+                <p data-i18n="aboutText">
+                  長年 Warcraft III のマップ制作に取り組み、プレイヤーが自然に理解できるルール設計、成長導線、リプレイ性を大切にしてきました。
+                </p>
+                <p data-i18n="aboutText2">
+                  DxLib では弾幕シューティングと、探索・素材収集・制作を組み合わせたゲームを制作しています。
+                </p>
+              </div>
+            </section>
 
-        <section id="about" class="section about-section reveal">
-        <div>
-          <p class="section-kicker" data-i18n="aboutKicker">About</p>
-          <h2 data-i18n="aboutTitle">可愛く、分かりやすく、遊びやすい体験を作る。</h2>
-        </div>
-        <div class="about-copy">
-          <p data-i18n="aboutText">
-            長年 Warcraft III のマップ制作に取り組み、プレイヤーが自然に理解できるルール設計、成長導線、リプレイ性を大切にしてきました。
-          </p>
-          <p data-i18n="aboutText2">
-            DxLib では弾幕シューティングと、探索・素材収集・制作を組み合わせたゲームを制作しています。
-          </p>
-          <div class="skill-list" aria-label="Skills">
-            <span>Warcraft III World Editor</span>
-            <span>DxLib</span>
-            <span>C / C++</span>
-            <span>Game Design</span>
-            <span>Level Design</span>
-            <span>UI Flow</span>
-          </div>
-        </div>
-        </section>
+            <section class="dashboard-card reveal">
+              <h3 data-i18n="toolsTitle">Tools &amp; Skills</h3>
+              <div class="skill-list" aria-label="Skills">
+                <span>Warcraft III World Editor</span>
+                <span>DxLib</span>
+                <span>C / C++</span>
+                <span>Game Design</span>
+                <span>Level Design</span>
+                <span>UI Flow</span>
+              </div>
+            </section>
 
-        <section id="works" class="section reveal">
-        <div class="section-heading">
-          <p class="section-kicker" data-i18n="worksKicker">Selected Works</p>
-          <h2 data-i18n="worksTitle">代表作品カテゴリ</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-media media-defense">
-              <span data-i18n="workOneTag">Warcraft III</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type" data-i18n="workOneType">Tower Defense / Defense</p>
-              <h3 data-i18n="workOneTitle">塔防・防守マップ</h3>
-              <p data-i18n="workOneText">ウェーブ設計、ユニット強化、協力プレイのテンポを重視したマップ制作。</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-media media-rpg">
-              <span data-i18n="workTwoTag">Warcraft III</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type" data-i18n="workTwoType">RPG / Survival</p>
-              <h3 data-i18n="workTwoTitle">角色扮演・生存ゲーム</h3>
-              <p data-i18n="workTwoText">成長、探索、資源管理を組み合わせ、継続して遊べる体験を設計。</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-media media-dxlib">
-              <span>DxLib</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type" data-i18n="workThreeType">Original Game</p>
-              <h3 data-i18n="workThreeTitle">弾幕シューティング / 探索制作</h3>
-              <p data-i18n="workThreeText">弾幕シューティングと、素材収集から制作へつながる探索ゲームを制作。</p>
-            </div>
-          </article>
-        </div>
-        </section>
+            <section id="contact" class="dashboard-card contact-card reveal">
+              <p class="section-kicker" data-i18n="contactKicker">Contact</p>
+              <h3 data-i18n="contactTitle">作品や制作について、お気軽にご連絡ください。</h3>
+              <p data-i18n="contactText">
+                GitHub、メール、各種プロフィールへのリンクは、正式な連絡先が決まり次第ここに追加できます。
+              </p>
+              <div class="contact-links">
+                <a href="mailto:hello@example.com" data-i18n="contactEmail">hello@example.com</a>
+                <a href="https://github.com/shijiezhiguo" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </section>
 
-        <section id="gallery" class="section gallery-section reveal">
-        <div class="section-heading compact">
-          <p class="section-kicker" data-i18n="galleryKicker">Gallery</p>
-          <h2 data-i18n="galleryTitle">制作スタイル</h2>
-        </div>
-        <div class="gallery-grid">
-          <article>
-            <span class="line-icon" aria-hidden="true"></span>
-            <h3 data-i18n="galleryOneTitle">分かりやすい導線</h3>
-            <p data-i18n="galleryOneText">初見でも迷いにくい UI、目的表示、成長ルートを意識。</p>
-          </article>
-          <article>
-            <span class="line-icon mint" aria-hidden="true"></span>
-            <h3 data-i18n="galleryTwoTitle">遊び続けたくなる設計</h3>
-            <p data-i18n="galleryTwoText">報酬、難易度、リトライ性のバランスで継続プレイを支える。</p>
-          </article>
-          <article>
-            <span class="line-icon blue" aria-hidden="true"></span>
-            <h3 data-i18n="galleryThreeTitle">可愛い世界観</h3>
-            <p data-i18n="galleryThreeText">AIナビゲーターのような親しみやすい演出で記憶に残す。</p>
-          </article>
-        </div>
-        </section>
+            <section class="music-player dashboard-card" aria-label="Background music player">
+              <audio
+                id="background-music"
+                src="assets/bgm/BGM_BASIC_001.mp3"
+                preload="metadata"
+                autoplay
+              ></audio>
+              <div class="music-meta">
+                <span class="music-label" data-i18n="musicLabel">BGM</span>
+                <strong id="music-track">BGM 01</strong>
+                <span id="music-status" class="music-status" aria-live="polite">再生準備完了</span>
+              </div>
+              <div class="music-controls">
+                <button id="music-previous" class="music-icon-button" type="button">
+                  <span aria-hidden="true">|◀</span>
+                </button>
+                <button id="music-toggle" class="music-icon-button music-toggle" type="button">
+                  <span aria-hidden="true">▶</span>
+                </button>
+                <button id="music-next" class="music-icon-button" type="button">
+                  <span aria-hidden="true">▶|</span>
+                </button>
+                <label class="volume-control">
+                  <span data-i18n="musicVolumeShort">VOL</span>
+                  <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.35">
+                </label>
+              </div>
+            </section>
+          </aside>
 
-        <section id="contact" class="section contact-section reveal">
-        <p class="section-kicker" data-i18n="contactKicker">Contact</p>
-        <h2 data-i18n="contactTitle">作品や制作について、お気軽にご連絡ください。</h2>
-        <p data-i18n="contactText">
-          GitHub、メール、各種プロフィールへのリンクは、正式な連絡先が決まり次第ここに追加できます。
-        </p>
-        <div class="contact-links">
-          <a href="mailto:hello@example.com" data-i18n="contactEmail">hello@example.com</a>
-          <a href="https://github.com/shijiezhiguo" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://shijiezhiguo.github.io/" target="_blank" rel="noreferrer">Portfolio</a>
+          <section id="works" class="dashboard-main reveal">
+            <div class="work-filter" aria-label="Work filters">
+              <button class="filter-button is-active" type="button" data-filter="all" data-i18n="filterAll">All</button>
+              <button class="filter-button" type="button" data-filter="warcraft">Warcraft III</button>
+              <button class="filter-button" type="button" data-filter="dxlib">DxLib</button>
+            </div>
+
+            <div class="dashboard-card works-heading">
+              <p class="section-kicker" data-i18n="worksKicker">Selected Works</p>
+              <h2 data-i18n="worksTitle">代表作品カテゴリ</h2>
+            </div>
+
+            <div class="project-list">
+              <article class="project-card" data-category="warcraft">
+                <div class="project-body">
+                  <div class="project-meta">
+                    <span data-i18n="workOneTag">Warcraft III</span>
+                    <span data-i18n="workOneType">Tower Defense / Defense</span>
+                  </div>
+                  <h3 data-i18n="workOneTitle">塔防・防守マップ</h3>
+                  <p data-i18n="workOneText">ウェーブ設計、ユニット強化、協力プレイのテンポを重視したマップ制作。</p>
+                </div>
+                <div class="project-accent accent-defense" aria-hidden="true">TD</div>
+              </article>
+
+              <article class="project-card" data-category="warcraft">
+                <div class="project-body">
+                  <div class="project-meta">
+                    <span data-i18n="workTwoTag">Warcraft III</span>
+                    <span data-i18n="workTwoType">RPG / Survival</span>
+                  </div>
+                  <h3 data-i18n="workTwoTitle">角色扮演・生存ゲーム</h3>
+                  <p data-i18n="workTwoText">成長、探索、資源管理を組み合わせ、継続して遊べる体験を設計。</p>
+                </div>
+                <div class="project-accent accent-rpg" aria-hidden="true">RPG</div>
+              </article>
+
+              <article class="project-card" data-category="dxlib">
+                <div class="project-body">
+                  <div class="project-meta">
+                    <span>DxLib</span>
+                    <span data-i18n="workThreeType">Original Game</span>
+                  </div>
+                  <h3 data-i18n="workThreeTitle">弾幕シューティング / 探索制作</h3>
+                  <p data-i18n="workThreeText">弾幕シューティングと、素材収集から制作へつながる探索ゲームを制作。</p>
+                </div>
+                <div class="project-accent accent-dxlib" aria-hidden="true">DX</div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="dashboard-column metrics-column">
+            <section id="achievements" class="dashboard-card reveal">
+              <p class="section-kicker" data-i18n="statsKicker">Achievements</p>
+              <h2 data-i18n="statsTitle">数字で見る制作経験</h2>
+              <div class="metrics-list">
+                <div class="metric-row">
+                  <strong>15+</strong>
+                  <div>
+                    <span data-i18n="statMaps">Warcraft III maps</span>
+                    <p data-i18n="statMapsText">塔防、防守、RPG、生存など、多様なジャンルを制作。</p>
+                  </div>
+                </div>
+                <div class="metric-row mint">
+                  <strong data-i18n="statCommercialNumber">4</strong>
+                  <div>
+                    <span data-i18n="statCommercial">Commercialized works</span>
+                    <p data-i18n="statCommercialText">公開・運営・収益化を意識した作品づくりを経験。</p>
+                  </div>
+                </div>
+                <div class="metric-row">
+                  <strong data-i18n="statRevenueNumber">430万JPY+</strong>
+                  <div>
+                    <span data-i18n="statRevenue">Revenue / results</span>
+                    <p data-i18n="statRevenueText">作品の成果を数値で追いながら改善。</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="gallery" class="dashboard-card reveal">
+              <p class="section-kicker" data-i18n="galleryKicker">Gallery</p>
+              <h2 data-i18n="galleryTitle">制作スタイル</h2>
+              <div class="principles-list">
+                <article>
+                  <span class="principle-mark"></span>
+                  <div>
+                    <h3 data-i18n="galleryOneTitle">分かりやすい導線</h3>
+                    <p data-i18n="galleryOneText">初見でも迷いにくい UI、目的表示、成長ルートを意識。</p>
+                  </div>
+                </article>
+                <article>
+                  <span class="principle-mark mint"></span>
+                  <div>
+                    <h3 data-i18n="galleryTwoTitle">遊び続けたくなる設計</h3>
+                    <p data-i18n="galleryTwoText">報酬、難易度、リトライ性のバランスで継続プレイを支える。</p>
+                  </div>
+                </article>
+                <article>
+                  <span class="principle-mark blue"></span>
+                  <div>
+                    <h3 data-i18n="galleryThreeTitle">可愛い世界観</h3>
+                    <p data-i18n="galleryThreeText">AIナビゲーターのような親しみやすい演出で記憶に残す。</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </aside>
         </div>
-        </section>
       </div>
     </main>
-
-    <section class="music-player" aria-label="Background music player">
-      <audio
-        id="background-music"
-        src="assets/bgm/BGM_BASIC_001.mp3"
-        preload="metadata"
-        autoplay
-      ></audio>
-      <div class="music-meta">
-        <span class="music-label" data-i18n="musicLabel">BGM</span>
-        <strong id="music-track">BGM 01</strong>
-        <span id="music-status" class="music-status" aria-live="polite">再生準備完了</span>
-      </div>
-      <div class="music-controls">
-        <button id="music-previous" class="music-icon-button" type="button">
-          <span aria-hidden="true">|◀</span>
-        </button>
-        <button id="music-toggle" class="music-icon-button music-toggle" type="button">
-          <span aria-hidden="true">▶</span>
-        </button>
-        <button id="music-next" class="music-icon-button" type="button">
-          <span aria-hidden="true">▶|</span>
-        </button>
-        <label class="volume-control">
-          <span data-i18n="musicVolumeShort">VOL</span>
-          <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.35">
-        </label>
-      </div>
-    </section>
 
     <aside class="ai-guide" aria-label="AI navigator">
       <button class="ai-guide-button" type="button" aria-expanded="false">
@@ -261,6 +287,6 @@
       <a href="#top" data-i18n="backTop">Back to top</a>
     </footer>
 
-    <script src="script.js?v=video-background"></script>
+    <script src="script.js?v=dashboard-layout"></script>
   </body>
 </html>

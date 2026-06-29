@@ -75,6 +75,9 @@ const translations = {
     musicPlayer: "BGMプレイヤー",
     backgroundPlay: "背景動画を再生",
     backgroundPause: "背景動画を一時停止",
+    toolsTitle: "ツール & スキル",
+    filterAll: "すべて",
+    workFilters: "作品フィルター",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -154,6 +157,9 @@ const translations = {
     musicPlayer: "Background music player",
     backgroundPlay: "Play background video",
     backgroundPause: "Pause background video",
+    toolsTitle: "Tools & Skills",
+    filterAll: "All",
+    workFilters: "Work filters",
     footerText: "© 2026 Game Creator Portfolio",
     backTop: "Back to top",
   },
@@ -233,6 +239,9 @@ const translations = {
     musicPlayer: "背景音乐播放器",
     backgroundPlay: "播放背景视频",
     backgroundPause: "暂停背景视频",
+    toolsTitle: "工具与技能",
+    filterAll: "全部",
+    workFilters: "作品筛选",
     footerText: "© 2026 游戏创作者作品集",
     backTop: "回到顶部",
   },
@@ -253,6 +262,9 @@ const musicNext = document.querySelector("#music-next");
 const musicVolume = document.querySelector("#music-volume");
 const backgroundVideo = document.querySelector("#background-video");
 const backgroundToggle = document.querySelector(".background-toggle");
+const workFilter = document.querySelector(".work-filter");
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card[data-category]");
 const revealItems = document.querySelectorAll(".reveal");
 const navigatorAssetVersion = "nav1-80";
 const navigatorFrames = Array.from({ length: 80 }, (_, index) =>
@@ -300,6 +312,18 @@ function updateBackgroundToggle() {
   backgroundToggle.querySelector("span").textContent = isPlaying ? "❚❚" : "▶";
 }
 
+function setWorkFilter(filter) {
+  filterButtons.forEach((button) => {
+    const isActive = button.dataset.filter === filter;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  projectCards.forEach((card) => {
+    card.hidden = filter !== "all" && card.dataset.category !== filter;
+  });
+}
+
 function setMusicState(state) {
   musicState = state;
   musicToggle.querySelector("span").textContent = state === "playing" ? "❚❚" : "▶";
@@ -339,6 +363,7 @@ function setLanguage(lang) {
   });
 
   localStorage.setItem("portfolio-language", lang);
+  workFilter.setAttribute("aria-label", dictionary.workFilters);
   updateMusicText();
   updateBackgroundToggle();
 }
@@ -361,6 +386,10 @@ document.querySelectorAll(".nav-links a, .guide-links a").forEach((link) => {
 
 langButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => setWorkFilter(button.dataset.filter));
 });
 
 guideButton.addEventListener("click", () => {
@@ -426,6 +455,7 @@ music.volume = Number.isFinite(savedMusicVolume) && savedMusicVolume >= 0 && sav
   ? savedMusicVolume
   : 0.35;
 musicVolume.value = String(music.volume);
+setWorkFilter("all");
 setLanguage(localStorage.getItem("portfolio-language") || "ja");
 playMusic();
 
