@@ -3,290 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="Game creator portfolio featuring Warcraft III maps, DxLib games, achievements, and works."
-    >
+    <meta name="description" content="Game creator portfolio featuring Warcraft III maps, DxLib games, achievements, and personal interests.">
     <title>Game Creator Portfolio | Shijie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    >
-    <link rel="stylesheet" href="styles.css?v=dashboard-layout">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=multi-page">
   </head>
-  <body>
+  <body data-page="home" data-section="home" data-title-key="homeTitle">
     <div class="site-background" aria-hidden="true">
       <video id="background-video" autoplay muted loop playsinline preload="metadata">
-        <source src="assets/mp4/background_player_01.mp4" type="video/mp4">
+        <source src="/assets/mp4/background_player_01.mp4" type="video/mp4">
       </video>
     </div>
-
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Portfolio home">
-        <span class="brand-mark">AI</span>
-        <span data-i18n="brand">Game Creator Portfolio</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="header-panel">
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#top" data-i18n="navHome">Home</a>
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#achievements" data-i18n="navAchievements">Achievements</a>
-          <a href="#works" data-i18n="navWorks">Works</a>
-          <a href="#gallery" data-i18n="navGallery">Gallery</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </nav>
-
-        <button class="background-toggle" type="button">
-          <span aria-hidden="true">❚❚</span>
-        </button>
-
-        <div class="language-switcher" aria-label="Language selector">
-          <button class="lang-button is-active" type="button" data-lang="ja">JP</button>
-          <button class="lang-button" type="button" data-lang="en">EN</button>
-          <button class="lang-button" type="button" data-lang="zh">ZH</button>
-        </div>
-      </div>
-    </header>
-
+    <div id="site-header"></div>
     <main id="top">
-      <section class="hero section reveal">
+      <section class="home-hero reveal">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="heroKicker">Game Creator / Portfolio 2026</p>
-          <h1 data-i18n="heroTitle">AIナビゲーターと巡る、ゲーム制作ポートフォリオ。</h1>
-          <p class="hero-text" data-i18n="heroText">
-            Warcraft III のマップ制作から DxLib のオリジナルゲームまで、遊びやすさと分かりやすさを大切にして制作してきました。
-          </p>
+          <p class="eyebrow" data-i18n="homeKicker">Game Creator / Portfolio 2026</p>
+          <h1 data-i18n="homeHeading">ゲームを作り、世界を組み立てる。</h1>
+          <p class="hero-text" data-i18n="homeText">Warcraft III のマップ制作から DxLib のオリジナルゲームまで、作品、経験、そして好きなものをまとめたポートフォリオです。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#works" data-i18n="heroPrimary">作品を見る</a>
-            <a class="button secondary" href="#contact" data-i18n="heroSecondary">連絡する</a>
+            <a class="button primary" href="/project/war3.html" data-i18n="homeProjectButton">作品を見る</a>
+            <a class="button secondary" href="/my/about.html" data-i18n="homeAboutButton">プロフィールを見る</a>
           </div>
         </div>
       </section>
-
-      <div class="content-surface">
-        <div class="dashboard-shell">
-          <aside class="dashboard-column profile-column">
-            <section id="about" class="dashboard-card profile-card reveal">
-              <p class="section-kicker" data-i18n="aboutKicker">About</p>
-              <h2 data-i18n="aboutTitle">可愛く、分かりやすく、遊びやすい体験を作る。</h2>
-              <div class="about-copy">
-                <p data-i18n="aboutText">
-                  長年 Warcraft III のマップ制作に取り組み、プレイヤーが自然に理解できるルール設計、成長導線、リプレイ性を大切にしてきました。
-                </p>
-                <p data-i18n="aboutText2">
-                  DxLib では弾幕シューティングと、探索・素材収集・制作を組み合わせたゲームを制作しています。
-                </p>
-              </div>
-            </section>
-
-            <section class="dashboard-card reveal">
-              <h3 data-i18n="toolsTitle">Tools &amp; Skills</h3>
-              <div class="skill-list" aria-label="Skills">
-                <span>Warcraft III World Editor</span>
-                <span>DxLib</span>
-                <span>C / C++</span>
-                <span>Game Design</span>
-                <span>Level Design</span>
-                <span>UI Flow</span>
-              </div>
-            </section>
-
-            <section id="contact" class="dashboard-card contact-card reveal">
-              <p class="section-kicker" data-i18n="contactKicker">Contact</p>
-              <h3 data-i18n="contactTitle">作品や制作について、お気軽にご連絡ください。</h3>
-              <p data-i18n="contactText">
-                GitHub、メール、各種プロフィールへのリンクは、正式な連絡先が決まり次第ここに追加できます。
-              </p>
-              <div class="contact-links">
-                <a href="mailto:hello@example.com" data-i18n="contactEmail">hello@example.com</a>
-                <a href="https://github.com/shijiezhiguo" target="_blank" rel="noreferrer">GitHub</a>
-              </div>
-            </section>
-
-            <section class="music-player dashboard-card" aria-label="Background music player">
-              <audio
-                id="background-music"
-                src="assets/bgm/BGM_BASIC_001.mp3"
-                preload="metadata"
-                autoplay
-              ></audio>
-              <div class="music-meta">
-                <span class="music-label" data-i18n="musicLabel">BGM</span>
-                <strong id="music-track">BGM 01</strong>
-                <span id="music-status" class="music-status" aria-live="polite">再生準備完了</span>
-              </div>
-              <div class="music-controls">
-                <button id="music-previous" class="music-icon-button" type="button">
-                  <span aria-hidden="true">|◀</span>
-                </button>
-                <button id="music-toggle" class="music-icon-button music-toggle" type="button">
-                  <span aria-hidden="true">▶</span>
-                </button>
-                <button id="music-next" class="music-icon-button" type="button">
-                  <span aria-hidden="true">▶|</span>
-                </button>
-                <label class="volume-control">
-                  <span data-i18n="musicVolumeShort">VOL</span>
-                  <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.35">
-                </label>
-              </div>
-            </section>
-          </aside>
-
-          <section id="works" class="dashboard-main reveal">
-            <div class="work-filter" aria-label="Work filters">
-              <button class="filter-button is-active" type="button" data-filter="all" data-i18n="filterAll">All</button>
-              <button class="filter-button" type="button" data-filter="warcraft">Warcraft III</button>
-              <button class="filter-button" type="button" data-filter="dxlib">DxLib</button>
-            </div>
-
-            <div class="dashboard-card works-heading">
-              <p class="section-kicker" data-i18n="worksKicker">Selected Works</p>
-              <h2 data-i18n="worksTitle">代表作品カテゴリ</h2>
-            </div>
-
-            <div class="project-list">
-              <article class="project-card" data-category="warcraft">
-                <div class="project-body">
-                  <div class="project-meta">
-                    <span data-i18n="workOneTag">Warcraft III</span>
-                    <span data-i18n="workOneType">Tower Defense / Defense</span>
-                  </div>
-                  <h3 data-i18n="workOneTitle">塔防・防守マップ</h3>
-                  <p data-i18n="workOneText">ウェーブ設計、ユニット強化、協力プレイのテンポを重視したマップ制作。</p>
-                </div>
-                <div class="project-accent accent-defense" aria-hidden="true">TD</div>
-              </article>
-
-              <article class="project-card" data-category="warcraft">
-                <div class="project-body">
-                  <div class="project-meta">
-                    <span data-i18n="workTwoTag">Warcraft III</span>
-                    <span data-i18n="workTwoType">RPG / Survival</span>
-                  </div>
-                  <h3 data-i18n="workTwoTitle">角色扮演・生存ゲーム</h3>
-                  <p data-i18n="workTwoText">成長、探索、資源管理を組み合わせ、継続して遊べる体験を設計。</p>
-                </div>
-                <div class="project-accent accent-rpg" aria-hidden="true">RPG</div>
-              </article>
-
-              <article class="project-card" data-category="dxlib">
-                <div class="project-body">
-                  <div class="project-meta">
-                    <span>DxLib</span>
-                    <span data-i18n="workThreeType">Original Game</span>
-                  </div>
-                  <h3 data-i18n="workThreeTitle">弾幕シューティング / 探索制作</h3>
-                  <p data-i18n="workThreeText">弾幕シューティングと、素材収集から制作へつながる探索ゲームを制作。</p>
-                </div>
-                <div class="project-accent accent-dxlib" aria-hidden="true">DX</div>
-              </article>
-            </div>
-          </section>
-
-          <aside class="dashboard-column metrics-column">
-            <section id="achievements" class="dashboard-card reveal">
-              <p class="section-kicker" data-i18n="statsKicker">Achievements</p>
-              <h2 data-i18n="statsTitle">数字で見る制作経験</h2>
-              <div class="metrics-list">
-                <div class="metric-row">
-                  <strong>15+</strong>
-                  <div>
-                    <span data-i18n="statMaps">Warcraft III maps</span>
-                    <p data-i18n="statMapsText">塔防、防守、RPG、生存など、多様なジャンルを制作。</p>
-                  </div>
-                </div>
-                <div class="metric-row mint">
-                  <strong data-i18n="statCommercialNumber">4</strong>
-                  <div>
-                    <span data-i18n="statCommercial">Commercialized works</span>
-                    <p data-i18n="statCommercialText">公開・運営・収益化を意識した作品づくりを経験。</p>
-                  </div>
-                </div>
-                <div class="metric-row">
-                  <strong data-i18n="statRevenueNumber">430万JPY+</strong>
-                  <div>
-                    <span data-i18n="statRevenue">Revenue / results</span>
-                    <p data-i18n="statRevenueText">作品の成果を数値で追いながら改善。</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="gallery" class="dashboard-card reveal">
-              <p class="section-kicker" data-i18n="galleryKicker">Gallery</p>
-              <h2 data-i18n="galleryTitle">制作スタイル</h2>
-              <div class="principles-list">
-                <article>
-                  <span class="principle-mark"></span>
-                  <div>
-                    <h3 data-i18n="galleryOneTitle">分かりやすい導線</h3>
-                    <p data-i18n="galleryOneText">初見でも迷いにくい UI、目的表示、成長ルートを意識。</p>
-                  </div>
-                </article>
-                <article>
-                  <span class="principle-mark mint"></span>
-                  <div>
-                    <h3 data-i18n="galleryTwoTitle">遊び続けたくなる設計</h3>
-                    <p data-i18n="galleryTwoText">報酬、難易度、リトライ性のバランスで継続プレイを支える。</p>
-                  </div>
-                </article>
-                <article>
-                  <span class="principle-mark blue"></span>
-                  <div>
-                    <h3 data-i18n="galleryThreeTitle">可愛い世界観</h3>
-                    <p data-i18n="galleryThreeText">AIナビゲーターのような親しみやすい演出で記憶に残す。</p>
-                  </div>
-                </article>
-              </div>
-            </section>
-          </aside>
+      <section class="page-surface home-surface">
+        <div class="content-wrap home-entry-grid">
+          <a class="entry-card reveal" href="/project/war3.html">
+            <div><p class="section-kicker">Project</p><h2 data-i18n="entryProjectTitle">Project</h2><p data-i18n="entryProjectText">War3、DxLib、Unity の制作経験と作品。</p></div>
+            <span class="entry-links" data-i18n="entryOpen">ページを開く</span>
+          </a>
+          <a class="entry-card reveal" href="/my/about.html">
+            <div><p class="section-kicker">My</p><h2 data-i18n="entryMyTitle">My</h2><p data-i18n="entryMyText">実績、スキル、ゲーム制作への考え方。</p></div>
+            <span class="entry-links" data-i18n="entryOpen">ページを開く</span>
+          </a>
+          <a class="entry-card reveal" href="/habit/anime.html">
+            <div><p class="section-kicker">Habit</p><h2 data-i18n="entryHabitTitle">Habit</h2><p data-i18n="entryHabitText">好きなアニメ、ゲーム、Cosplay の記録。</p></div>
+            <span class="entry-links" data-i18n="entryOpen">ページを開く</span>
+          </a>
         </div>
-      </div>
+      </section>
     </main>
-
-    <aside class="ai-guide" aria-label="AI navigator">
-      <button class="ai-guide-button" type="button" aria-expanded="false">
-        <img
-          class="mini-navigator navigator-frame"
-          src="assets/ai-navigator/catgirl_00.png?v=nav1-80"
-          alt=""
-          width="40"
-          height="80"
-        >
-        <span data-i18n="guideButton">Guide</span>
-      </button>
-      <div class="ai-guide-panel">
-        <img
-          class="guide-navigator navigator-frame"
-          src="assets/ai-navigator/catgirl_00.png?v=nav1-80"
-          alt=""
-          width="72"
-          height="143"
-        >
-        <p data-i18n="guideText">こんにちは。作品と実績を順番に案内します。</p>
-        <div class="guide-links">
-          <a href="#achievements" data-i18n="guideStats">実績</a>
-          <a href="#works" data-i18n="guideWorks">作品</a>
-          <a href="#contact" data-i18n="guideContact">連絡</a>
-        </div>
-      </div>
-    </aside>
-
-    <footer class="site-footer">
-      <span data-i18n="footerText">© 2026 Game Creator Portfolio</span>
-      <a href="#top" data-i18n="backTop">Back to top</a>
-    </footer>
-
-    <script src="script.js?v=dashboard-layout"></script>
+    <div id="site-widgets"></div>
+    <div id="site-footer"></div>
+    <script src="/script.js?v=multi-page"></script>
   </body>
 </html>
