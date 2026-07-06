@@ -1,20 +1,20 @@
 const translations = {
   ja: {
     brand: "Game Creator Portfolio",
-    navHome: "Home",
-    navProject: "Project",
+    navHome: "ホーム",
+    navProject: "プロジェクト",
     navWar3: "War3",
     navDxLib: "DxLib",
     navUnity: "Unity",
-    navMy: "My",
-    navAchievements: "Achievements",
-    navSkills: "Skills",
-    navAbout: "About",
-    navContact: "Contact",
-    navHabit: "Habit",
-    navAnime: "Anime",
-    navGame: "Game",
-    navCosplay: "Cosplay",
+    navMy: "私について",
+    navAchievements: "実績",
+    navSkills: "スキル",
+    navAbout: "自己紹介",
+    navContact: "お問い合わせ",
+    navHabit: "趣味",
+    navAnime: "アニメ",
+    navGame: "ゲーム",
+    navCosplay: "コスプレ",
     menuOpen: "メニューを開く",
     menuClose: "メニューを閉じる",
     backgroundPlay: "背景動画を再生",
@@ -48,7 +48,7 @@ const translations = {
     homeAboutButton: "プロフィールを見る",
     entryProjectTitle: "Project",
     entryProjectText: "War3、DxLib、Unity の制作経験と作品。",
-    entryMyTitle: "My",
+    entryMyTitle: "私について",
     entryMyText: "実績、スキル、ゲーム制作への考え方。",
     entryHabitTitle: "Habit",
     entryHabitText: "好きなアニメ、ゲーム、Cosplay の記録。",
@@ -259,11 +259,11 @@ function renderShell() {
             </div>
           </div>
           <div class="nav-group" data-section="my">
-            <a class="nav-trigger" href="/my/achievements.html" aria-haspopup="true"><span data-i18n="navMy">My</span><span class="nav-caret" aria-hidden="true"></span></a>
+            <a class="nav-trigger" href="/my/about.html" aria-haspopup="true"><span data-i18n="navMy">My</span><span class="nav-caret" aria-hidden="true"></span></a>
             <div class="nav-dropdown">
-              <a href="/my/achievements.html" data-i18n="navAchievements">Achievements</a>
-              <a href="/my/skills.html" data-i18n="navSkills">Skills</a>
               <a href="/my/about.html" data-i18n="navAbout">About</a>
+              <a href="/my/skills.html" data-i18n="navSkills">Skills</a>
+              <a href="/my/achievements.html" data-i18n="navAchievements">Achievements</a>
             </div>
           </div>
           <a class="nav-item" data-section="contact" href="/contact.html" data-i18n="navContact">Contact</a>
