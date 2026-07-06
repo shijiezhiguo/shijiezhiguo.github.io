@@ -274,6 +274,7 @@ function renderShell() {
     </header>`;
 
   document.querySelector("#site-widgets").innerHTML = `
+    <canvas id="sakura-canvas" class="sakura-canvas" aria-hidden="true"></canvas>
     <aside class="music-dock">
       <button class="music-dock-toggle" type="button" aria-expanded="false">BGM</button>
       <section class="music-player-panel">
@@ -317,6 +318,7 @@ const navGroups = document.querySelectorAll(".nav-group");
 const langButtons = document.querySelectorAll(".lang-button");
 const backgroundVideo = document.querySelector("#background-video");
 const backgroundToggle = document.querySelector(".background-toggle");
+const sakuraCanvas = document.querySelector("#sakura-canvas");
 const musicDock = document.querySelector(".music-dock");
 const musicDockToggle = document.querySelector(".music-dock-toggle");
 const music = document.querySelector("#background-music");
@@ -329,6 +331,92 @@ const musicVolume = document.querySelector("#music-volume");
 const guide = document.querySelector(".ai-guide");
 const navigatorCharacter = document.querySelector(".navigator-character");
 const navigatorImage = document.querySelector(".navigator-frame");
+
+function initializeSakura() {
+  const context = sakuraCanvas.getContext("2d");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let petals = [];
+  let animationFrame = 0;
+  let width = 0;
+  let height = 0;
+  let lastTime = 0;
+
+  function createPetal(initial = false) {
+    const size = 5 + Math.random() * 6;
+    return {
+      x: Math.random() * width,
+      y: initial ? Math.random() * height : -size * 2,
+      size,
+      fallSpeed: 0.45 + Math.random() * 0.7,
+      drift: -0.18 + Math.random() * 0.36,
+      sway: Math.random() * Math.PI * 2,
+      swaySpeed: 0.012 + Math.random() * 0.018,
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: -0.018 + Math.random() * 0.036,
+      opacity: 0.38 + Math.random() * 0.38,
+      color: Math.random() > 0.35 ? "255, 141, 177" : "255, 190, 211",
+    };
+  }
+
+  function resizeSakura() {
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    sakuraCanvas.width = Math.round(width * pixelRatio);
+    sakuraCanvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    const petalCount = Math.min(38, Math.max(16, Math.round(width / 45)));
+    petals = Array.from({ length: petalCount }, () => createPetal(true));
+  }
+
+  function drawPetal(petal) {
+    context.save();
+    context.translate(petal.x, petal.y);
+    context.rotate(petal.rotation);
+    context.fillStyle = `rgba(${petal.color}, ${petal.opacity})`;
+    context.beginPath();
+    context.moveTo(0, -petal.size);
+    context.bezierCurveTo(petal.size * 0.7, -petal.size * 0.45, petal.size * 0.62, petal.size * 0.45, 0, petal.size);
+    context.bezierCurveTo(-petal.size * 0.62, petal.size * 0.45, -petal.size * 0.7, -petal.size * 0.45, 0, -petal.size);
+    context.fill();
+    context.restore();
+  }
+
+  function animateSakura(time) {
+    const frameScale = Math.min((time - lastTime) / 16.67 || 1, 2);
+    lastTime = time;
+    context.clearRect(0, 0, width, height);
+    petals.forEach((petal, index) => {
+      petal.sway += petal.swaySpeed * frameScale;
+      petal.x += (petal.drift + Math.sin(petal.sway) * 0.28) * frameScale;
+      petal.y += petal.fallSpeed * frameScale;
+      petal.rotation += petal.rotationSpeed * frameScale;
+      if (petal.y > height + petal.size * 2 || petal.x < -30 || petal.x > width + 30) {
+        petals[index] = createPetal();
+      } else {
+        drawPetal(petal);
+      }
+    });
+    animationFrame = requestAnimationFrame(animateSakura);
+  }
+
+  function updateSakuraMotion() {
+    cancelAnimationFrame(animationFrame);
+    context.clearRect(0, 0, width, height);
+    if (!reducedMotion.matches && document.visibilityState === "visible") {
+      lastTime = 0;
+      animationFrame = requestAnimationFrame(animateSakura);
+    }
+  }
+
+  resizeSakura();
+  updateSakuraMotion();
+  window.addEventListener("resize", resizeSakura);
+  document.addEventListener("visibilitychange", updateSakuraMotion);
+  reducedMotion.addEventListener("change", updateSakuraMotion);
+}
+
+initializeSakura();
 
 function dictionary() {
   return translations[currentLanguage] || translations.ja;
