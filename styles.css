@@ -791,6 +791,44 @@ main,
   overflow: hidden;
 }
 
+.gallery-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7 / 10;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.anime-card {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.anime-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.anime-card .gallery-card-body {
+  display: grid;
+  min-height: 92px;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 11px;
+}
+
+.anime-card .gallery-card-body h2 {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.gallery-index {
+  color: var(--accent-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
 .placeholder-media {
   display: grid;
   min-height: 220px;
