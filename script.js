@@ -237,7 +237,7 @@ function renderShell() {
         <nav class="nav-links" aria-label="Primary navigation">
           <a class="nav-item" data-section="home" href="/" data-i18n="navHome">Home</a>
           <div class="nav-group" data-section="project">
-            <button class="nav-trigger" type="button" aria-expanded="false"><span data-i18n="navProject">Project</span><span class="nav-caret" aria-hidden="true"></span></button>
+            <a class="nav-trigger" href="/project/war3.html" aria-haspopup="true"><span data-i18n="navProject">Project</span><span class="nav-caret" aria-hidden="true"></span></a>
             <div class="nav-dropdown">
               <a href="/project/war3.html" data-i18n="navWar3">War3</a>
               <a href="/project/dxlib.html" data-i18n="navDxLib">DxLib</a>
@@ -245,7 +245,7 @@ function renderShell() {
             </div>
           </div>
           <div class="nav-group" data-section="my">
-            <button class="nav-trigger" type="button" aria-expanded="false"><span data-i18n="navMy">My</span><span class="nav-caret" aria-hidden="true"></span></button>
+            <a class="nav-trigger" href="/my/achievements.html" aria-haspopup="true"><span data-i18n="navMy">My</span><span class="nav-caret" aria-hidden="true"></span></a>
             <div class="nav-dropdown">
               <a href="/my/achievements.html" data-i18n="navAchievements">Achievements</a>
               <a href="/my/skills.html" data-i18n="navSkills">Skills</a>
@@ -254,7 +254,7 @@ function renderShell() {
           </div>
           <a class="nav-item" data-section="contact" href="/contact.html" data-i18n="navContact">Contact</a>
           <div class="nav-group" data-section="habit">
-            <button class="nav-trigger" type="button" aria-expanded="false"><span data-i18n="navHabit">Habit</span><span class="nav-caret" aria-hidden="true"></span></button>
+            <a class="nav-trigger" href="/habit/anime.html" aria-haspopup="true"><span data-i18n="navHabit">Habit</span><span class="nav-caret" aria-hidden="true"></span></a>
             <div class="nav-dropdown">
               <a href="/habit/anime.html" data-i18n="navAnime">Anime</a>
               <a href="/habit/game.html" data-i18n="navGame">Game</a>
@@ -314,7 +314,6 @@ renderShell();
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const navGroups = document.querySelectorAll(".nav-group");
-const navTriggers = document.querySelectorAll(".nav-trigger");
 const langButtons = document.querySelectorAll(".lang-button");
 const backgroundVideo = document.querySelector("#background-video");
 const backgroundToggle = document.querySelector(".background-toggle");
@@ -410,7 +409,6 @@ function closeNavigation() {
   header.classList.remove("is-open");
   menuToggle.setAttribute("aria-expanded", "false");
   navGroups.forEach((group) => group.classList.remove("is-open"));
-  navTriggers.forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
   menuToggle.setAttribute("aria-label", dictionary().menuOpen);
 }
 
@@ -428,17 +426,6 @@ menuToggle.addEventListener("click", () => {
   const open = header.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(open));
   menuToggle.setAttribute("aria-label", dictionary()[open ? "menuClose" : "menuOpen"]);
-});
-
-navTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", () => {
-    const group = trigger.closest(".nav-group");
-    const willOpen = !group.classList.contains("is-open");
-    navGroups.forEach((item) => item.classList.remove("is-open"));
-    navTriggers.forEach((item) => item.setAttribute("aria-expanded", "false"));
-    group.classList.toggle("is-open", willOpen);
-    trigger.setAttribute("aria-expanded", String(willOpen));
-  });
 });
 
 header.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
