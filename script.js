@@ -148,6 +148,8 @@ const translations = {
     cosplayKicker: "Habit / Cosplay",
     cosplayHeading: "Cosplay Gallery",
     cosplayLead: "Cosplay 写真と制作記録を掲載するギャラリー。",
+    cosplayPortrait: "縦写真",
+    cosplayLandscape: "横写真",
     galleryPlaceholder: "Coming Soon",
     galleryItemTitle: "コンテンツ準備中",
     galleryItemText: "画像と紹介文を追加予定です。",
@@ -181,7 +183,7 @@ const translations = {
     contactTitle: "Contact | Game Creator Portfolio", contactKicker: "Contact", contactHeading: "Feel free to contact me about projects or game creation.", contactLead: "Available contact methods and profiles.", githubText: "My GitHub account for development activity and code.", openGithub: "Open GitHub", xText: "The public X account is being prepared.", emailText: "The public email address is being prepared.", statusPreparing: "Coming soon",
     animeTitle: "Anime | Game Creator Portfolio", animeKicker: "Habit / Anime", animeHeading: "Favorite anime", animeLead: "A gallery for favorite works and characters.", animeWork1: "Miss Kobayashi's Dragon Maid", animeWork2: "Kanon", animeWork3: "KONOSUBA -God's blessing on this wonderful world!-", animeWork4: "CLANNAD", animeWork5: "Grand Blue Dreaming", animeWork6: "The Cat and the Dragon", animeWork7: "Kaguya-sama: Love Is War", animeWork8: "Is the Order a Rabbit?", animeWork9: "K-ON!", animeWork10: "So I'm a Spider, So What?",
     gameTitle: "Game | Game Creator Portfolio", gameKicker: "Habit / Game", gameHeading: "Favorite games", gameLead: "Games I have played, works that influenced me, and experiences I enjoy.",
-    cosplayTitle: "Cosplay | Game Creator Portfolio", cosplayKicker: "Habit / Cosplay", cosplayHeading: "Cosplay Gallery", cosplayLead: "A gallery for cosplay photos and creation notes.",
+    cosplayTitle: "Cosplay | Game Creator Portfolio", cosplayKicker: "Habit / Cosplay", cosplayHeading: "Cosplay Gallery", cosplayLead: "A gallery for cosplay photos and creation notes.", cosplayPortrait: "Portrait", cosplayLandscape: "Landscape",
     galleryPlaceholder: "Coming Soon", galleryItemTitle: "Content coming soon", galleryItemText: "Images and descriptions will be added here.",
   },
   zh: {
@@ -210,7 +212,7 @@ const translations = {
     contactTitle: "联系 | 游戏创作者作品集", contactKicker: "联系", contactHeading: "欢迎联系我聊作品和游戏制作。", contactLead: "这里整理了可使用的联系方式与个人主页。", githubText: "发布开发活动与代码的 GitHub 账号。", openGithub: "打开 GitHub", xText: "公开 X 账号正在准备中。", emailText: "公开邮箱正在准备中。", statusPreparing: "准备中",
     animeTitle: "动漫 | 游戏创作者作品集", animeKicker: "兴趣 / 动漫", animeHeading: "喜欢的动漫", animeLead: "用于展示喜欢的作品和角色的图库。", animeWork1: "小林家的龙女仆", animeWork2: "Kanon", animeWork3: "为美好的世界献上祝福！", animeWork4: "CLANNAD", animeWork5: "碧蓝之海", animeWork6: "猫与龙", animeWork7: "辉夜大小姐想让我告白～天才们的恋爱头脑战～", animeWork8: "请问您今天要来点兔子吗？", animeWork9: "轻音少女", animeWork10: "转生成蜘蛛又怎样！",
     gameTitle: "游戏 | 游戏创作者作品集", gameKicker: "兴趣 / 游戏", gameHeading: "喜欢的游戏", gameLead: "记录玩过的游戏、影响我的作品和喜欢的体验。",
-    cosplayTitle: "Cosplay | 游戏创作者作品集", cosplayKicker: "兴趣 / Cosplay", cosplayHeading: "Cosplay 图库", cosplayLead: "展示 Cosplay 照片和制作记录的图库。",
+    cosplayTitle: "Cosplay | 游戏创作者作品集", cosplayKicker: "兴趣 / Cosplay", cosplayHeading: "Cosplay 图库", cosplayLead: "展示 Cosplay 照片和制作记录的图库。", cosplayPortrait: "竖版照片", cosplayLandscape: "横版照片",
     galleryPlaceholder: "即将添加", galleryItemTitle: "内容准备中", galleryItemText: "之后会在这里添加图片与介绍。",
   },
 };

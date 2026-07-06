@@ -787,7 +787,8 @@ main,
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.anime-gallery {
+.anime-gallery,
+.game-gallery {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
@@ -850,6 +851,85 @@ main,
   margin-bottom: 3px;
   color: var(--accent-deep);
   font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.cosplay-page,
+.cosplay-group {
+  display: grid;
+}
+
+.cosplay-page {
+  gap: 48px;
+}
+
+.cosplay-group {
+  gap: 16px;
+}
+
+.cosplay-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cosplay-group-heading span {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg-soft);
+  color: var(--accent-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.cosplay-group-heading h2 {
+  margin-bottom: 0;
+  font-size: 1.55rem;
+}
+
+.cosplay-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cosplay-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 141, 177, 0.55);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 10px 28px rgba(129, 91, 111, 0.1);
+}
+
+.cosplay-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.cosplay-portrait-grid .cosplay-card img {
+  aspect-ratio: 3 / 5;
+}
+
+.cosplay-landscape-grid .cosplay-card img {
+  aspect-ratio: 5 / 3;
+}
+
+.cosplay-card figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 7px;
+  border: 1px solid rgba(255, 141, 177, 0.45);
+  border-radius: 6px;
+  background: rgba(255, 249, 252, 0.82);
+  color: var(--accent-deep);
+  font-size: 0.68rem;
   font-weight: 800;
 }
 
@@ -1159,8 +1239,13 @@ main,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .anime-gallery {
+  .anime-gallery,
+  .game-gallery {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cosplay-landscape-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1227,7 +1312,8 @@ main,
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .anime-gallery {
+  .anime-gallery,
+  .game-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
@@ -1240,6 +1326,20 @@ main,
 
   .anime-card .gallery-card-body {
     padding: 7px;
+  }
+
+  .cosplay-page {
+    gap: 38px;
+  }
+
+  .cosplay-portrait-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cosplay-landscape-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
 
   .skills-page {
