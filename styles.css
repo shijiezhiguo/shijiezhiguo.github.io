@@ -379,10 +379,45 @@ main,
   font-size: clamp(2.25rem, 4.5vw, 3.7rem);
 }
 
-.page-hero p:last-child {
+.page-hero h1 + p {
   max-width: 720px;
   margin-bottom: 0;
   color: #514b55;
+}
+
+.project-page-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.project-page-tabs a {
+  display: inline-flex;
+  min-width: 136px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 141, 177, 0.58);
+  border-radius: 8px;
+  background: rgba(255, 249, 252, 0.58);
+  color: var(--accent-deep);
+  font-size: 0.86rem;
+  font-weight: 800;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.project-page-tabs a:hover,
+.project-page-tabs a:focus-visible {
+  border-color: var(--accent);
+  background: rgba(255, 240, 246, 0.78);
+  transform: translateY(-2px);
+}
+
+.project-page-tabs a[aria-current="page"] {
+  border-color: rgba(255, 111, 159, 0.78);
+  background: rgba(255, 141, 177, 0.24);
 }
 
 .page-surface {
@@ -1140,6 +1175,17 @@ main,
 
   .button {
     width: 100%;
+  }
+
+  .project-page-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .project-page-tabs a {
+    min-width: 0;
+    padding-inline: 8px;
   }
 
   .work-card {
