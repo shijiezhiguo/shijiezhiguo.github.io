@@ -787,6 +787,11 @@ main,
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.anime-gallery {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .gallery-card {
   overflow: hidden;
 }
@@ -800,6 +805,9 @@ main,
 }
 
 .anime-card {
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1fr;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -809,21 +817,22 @@ main,
 }
 
 .anime-card .gallery-card-body {
-  display: grid;
-  min-height: 92px;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: 11px;
+  display: block;
+  height: 124px;
+  min-height: 0;
+  padding: 14px;
 }
 
 .anime-card .gallery-card-body h2 {
   margin-bottom: 0;
   overflow-wrap: anywhere;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .gallery-index {
+  display: block;
+  margin-bottom: 5px;
   color: var(--accent-deep);
   font-size: 0.72rem;
   font-weight: 800;
@@ -1134,6 +1143,10 @@ main,
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .anime-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -1197,6 +1210,11 @@ main,
   .skill-card-grid,
   .design-skill-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .anime-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .skills-page {
