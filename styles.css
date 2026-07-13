@@ -149,17 +149,6 @@ main,
   text-shadow: 0 1px 12px rgba(255, 255, 255, 0.9);
 }
 
-.brand-mark {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.88);
-  font-size: 0.74rem;
-}
-
 .header-panel {
   gap: 14px;
 }
@@ -913,6 +902,97 @@ main,
   font-size: 0.9rem;
 }
 
+.skill-detail-section {
+  display: grid;
+  gap: 12px;
+}
+
+.skill-detail-section > h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+}
+
+.skill-detail-lead {
+  margin: 0;
+  color: var(--muted);
+}
+
+#skills-details {
+  display: grid;
+  gap: 34px;
+  margin-top: 8px;
+}
+
+.skill-detail-category {
+  display: grid;
+  gap: 14px;
+}
+
+.skill-detail-category h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.skill-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-detail-card {
+  display: grid;
+  gap: 13px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(129, 91, 111, 0.08);
+}
+
+.skill-detail-card header {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.skill-detail-card h4 {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.skill-detail-card header span {
+  color: var(--accent-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.skill-detail-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.skill-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skill-detail-tags span {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg-soft);
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1454,6 +1534,10 @@ main,
   .project-detail-grid,
   .skill-card-grid,
   .design-skill-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skill-detail-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
