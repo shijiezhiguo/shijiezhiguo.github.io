@@ -522,6 +522,149 @@ main,
   margin-bottom: 0;
 }
 
+.about-page,
+.about-section {
+  display: grid;
+}
+
+.about-page {
+  gap: 48px;
+}
+
+.about-section {
+  gap: 16px;
+}
+
+.section-heading {
+  font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+}
+
+.about-intro-card {
+  display: grid;
+  gap: 14px;
+}
+
+.about-intro-card h2,
+.featured-project-card h2 {
+  font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+}
+
+.about-pr-grid,
+.project-detail-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.about-pr-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-pr-card {
+  min-height: 184px;
+}
+
+.career-timeline {
+  display: grid;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 10px 28px rgba(129, 91, 111, 0.1);
+  list-style: none;
+}
+
+.career-timeline li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.career-timeline li:last-child {
+  border-bottom: 0;
+}
+
+.career-timeline time {
+  color: var(--accent-deep);
+  font-weight: 800;
+}
+
+.career-timeline p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.featured-project-card {
+  display: grid;
+  gap: 22px;
+}
+
+.featured-project-heading,
+.project-facts {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.featured-project-heading p,
+.project-facts p,
+.project-copy p,
+.project-next p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-facts {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-facts p {
+  display: grid;
+  gap: 4px;
+  min-width: min(100%, 235px);
+}
+
+.project-facts strong,
+.project-copy h3,
+.project-detail-grid h3,
+.project-next h3 {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.project-copy {
+  display: grid;
+}
+
+.project-copy,
+.project-detail-grid {
+  gap: 10px;
+}
+
+.project-detail-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-next {
+  padding: 18px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: rgba(255, 141, 177, 0.1);
+}
+
+.project-next h3 {
+  margin-bottom: 8px;
+}
+
 .work-list {
   display: grid;
   gap: 16px;
@@ -1307,6 +1450,8 @@ main,
   .metric-grid,
   .contact-grid,
   .gallery-grid,
+  .about-pr-grid,
+  .project-detail-grid,
   .skill-card-grid,
   .design-skill-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1378,6 +1523,17 @@ main,
   .section-page-tabs a {
     min-width: 0;
     padding-inline: 8px;
+  }
+
+  .career-timeline li {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .featured-project-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .work-card {
