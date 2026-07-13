@@ -885,12 +885,25 @@ main,
 }
 
 .design-skill-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
   min-height: 140px;
   align-items: flex-start;
   gap: 16px;
   padding: 22px;
   --skill-color: var(--accent);
+}
+
+.skill-engine-card .skill-card-head {
+  grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.skill-qualitative-card .skill-card-head {
+  grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.design-skill-card .skill-card-extra {
+  grid-column: 2;
 }
 
 .design-skill-card:nth-child(2) {
@@ -902,85 +915,31 @@ main,
   font-size: 0.9rem;
 }
 
-.skill-detail-section {
-  display: grid;
-  gap: 12px;
-}
-
-.skill-detail-section > h2 {
-  margin: 0;
-  font-size: clamp(1.55rem, 2.5vw, 2rem);
-}
-
-.skill-detail-lead {
-  margin: 0;
-  color: var(--muted);
-}
-
-#skills-details {
-  display: grid;
-  gap: 34px;
-  margin-top: 8px;
-}
-
-.skill-detail-category {
-  display: grid;
-  gap: 14px;
-}
-
-.skill-detail-category h3 {
-  margin: 0;
-  font-size: 1.15rem;
-}
-
-.skill-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.skill-detail-card {
+.skill-card-extra {
   display: grid;
   gap: 13px;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 24px rgba(129, 91, 111, 0.08);
+  margin-top: 16px;
 }
 
-.skill-detail-card header {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.skill-detail-card h4 {
-  margin: 0;
-  font-size: 1.12rem;
-}
-
-.skill-detail-card header span {
+.skill-card-extra > span {
   color: var(--accent-deep);
   font-size: 0.76rem;
   font-weight: 800;
-  text-align: right;
 }
 
-.skill-detail-card p {
+.skill-card-extra p {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.skill-detail-tags {
+.skill-card-extra div {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
 }
 
-.skill-detail-tags span {
+.skill-card-extra div span {
   display: inline-flex;
   min-height: 26px;
   align-items: center;
@@ -1537,9 +1496,6 @@ main,
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .skill-detail-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
 
   .anime-gallery,
   .game-gallery {

@@ -6,7 +6,7 @@
     <title>Skills | Game Creator Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css?v=skills-detail-1">
+    <link rel="stylesheet" href="/styles.css?v=skills-merged-1">
   </head>
   <body data-page="skills" data-section="my" data-title-key="skillsTitle">
     <div class="site-background" aria-hidden="true"><video id="background-video" autoplay muted loop playsinline preload="metadata"><source src="/assets/mp4/background_player_01.mp4" type="video/mp4"></video></div>
@@ -14,7 +14,7 @@
     <main id="top">
       <section class="page-hero reveal"><div><p class="eyebrow" data-i18n="skillsKicker">My / Skills</p><h1 data-i18n="skillsHeading">Tools &amp; Skills</h1><p data-i18n="skillsLead">ゲーム制作で使用しているツール、言語、設計領域。</p><nav class="section-page-tabs" aria-label="My pages"><a href="/my/about.html" data-i18n="navAbout">自己紹介</a><a href="/my/skills.html" aria-current="page" data-i18n="navSkills">スキル</a><a href="/my/achievements.html" data-i18n="navAchievements">実績</a></nav></div></section>
       <section class="page-surface"><div class="content-wrap skills-page">
-        <section class="skill-category reveal">
+        <section class="skill-category reveal" data-detail-category="0">
           <div class="skill-category-heading"><span>01</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsProgramming">Programming</h2></div></div>
           <div class="skill-card-grid">
             <article class="skill-card" style="--skill-level: 80; --skill-color: #ff6f9f"><div class="skill-card-head"><span class="skill-icon">C++</span><div><h3>C++</h3><p data-i18n="skillsProgrammingLabel">Programming language</p></div><strong>80%</strong></div><div class="skill-progress" role="progressbar" aria-label="C++ 80%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span></span></div></article>
@@ -23,11 +23,21 @@
             <article class="skill-card" style="--skill-level: 60; --skill-color: #f1c84b"><div class="skill-card-head"><span class="skill-icon">PY</span><div><h3>Python</h3><p data-i18n="skillsProgrammingLabel">Programming language</p></div><strong>60%</strong></div><div class="skill-progress" role="progressbar" aria-label="Python 60%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"><span></span></div></article>
             <article class="skill-card" style="--skill-level: 95; --skill-color: #7dd3b0"><div class="skill-card-head"><span class="skill-icon">JS</span><div><h3>JASS</h3><p data-i18n="skillsProgrammingLabel">Programming language</p></div><strong>95%</strong></div><div class="skill-progress" role="progressbar" aria-label="JASS 95%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span></span></div></article>
             <article class="skill-card" style="--skill-level: 50; --skill-color: #9d8de3"><div class="skill-card-head"><span class="skill-icon">SQL</span><div><h3>SQL</h3><p data-i18n="skillsDatabaseLabel">Database language</p></div><strong>50%</strong></div><div class="skill-progress" role="progressbar" aria-label="SQL 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div></article>
+            <article class="skill-card skill-qualitative-card"><div class="skill-card-head"><span class="skill-icon">WEB</span><div><h3>HTML / CSS</h3><p data-i18n="skillsProgrammingLabel">Programming language</p></div></div></article>
           </div>
         </section>
 
-        <section class="skill-category reveal">
-          <div class="skill-category-heading"><span>02</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsCreative">Creative Tools</h2></div></div>
+        <section class="skill-category reveal" data-detail-category="1">
+          <div class="skill-category-heading"><span>02</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsEngines">Game Engines &amp; Libraries</h2></div></div>
+          <div class="skill-card-grid">
+            <article class="skill-card skill-engine-card"><div class="skill-card-head"><span class="skill-icon">DX</span><div><h3>DxLib</h3><p data-i18n="skillsEngineLabel">Game engine / library</p></div></div></article>
+            <article class="skill-card skill-engine-card"><div class="skill-card-head"><span class="skill-icon">UN</span><div><h3>Unity</h3><p data-i18n="skillsEngineLabel">Game engine / library</p></div></div></article>
+            <article class="skill-card skill-engine-card"><div class="skill-card-head"><span class="skill-icon">UE</span><div><h3>Unreal Engine</h3><p data-i18n="skillsEngineLabel">Game engine / library</p></div></div></article>
+          </div>
+        </section>
+
+        <section class="skill-category reveal" data-detail-category="2">
+          <div class="skill-category-heading"><span>03</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsCreative">Creative Tools</h2></div></div>
           <div class="skill-card-grid">
             <article class="skill-card" style="--skill-level: 80; --skill-color: #4b7bec"><div class="skill-card-head"><span class="skill-icon">Ps</span><div><h3>Photoshop</h3><p data-i18n="skillsCreativeLabel">Creative tool</p></div><strong>80%</strong></div><div class="skill-progress" role="progressbar" aria-label="Photoshop 80%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span></span></div></article>
             <article class="skill-card" style="--skill-level: 50; --skill-color: #8f6ee8"><div class="skill-card-head"><span class="skill-icon">Ae</span><div><h3>After Effects</h3><p data-i18n="skillsCreativeLabel">Creative tool</p></div><strong>50%</strong></div><div class="skill-progress" role="progressbar" aria-label="After Effects 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div></article>
@@ -36,26 +46,27 @@
           </div>
         </section>
 
-        <section class="skill-category reveal">
-          <div class="skill-category-heading"><span>03</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsLanguages">Languages</h2></div></div>
+        <section class="skill-category reveal" data-detail-category="3">
+          <div class="skill-category-heading"><span>04</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsLanguages">Languages</h2></div></div>
           <div class="skill-card-grid language-skill-grid">
             <article class="skill-card" style="--skill-level: 90; --skill-color: #ff6f9f"><div class="skill-card-head"><span class="skill-icon">ZH</span><div><h3 data-i18n="languageChinese">Chinese</h3><p data-i18n="skillsLanguageLabel">Language ability</p></div><strong>90%</strong></div><div class="skill-progress" role="progressbar" aria-label="Chinese 90%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span></span></div></article>
             <article class="skill-card" style="--skill-level: 50; --skill-color: #84b8f5"><div class="skill-card-head"><span class="skill-icon">EN</span><div><h3 data-i18n="languageEnglish">English</h3><p data-i18n="skillsLanguageLabel">Language ability</p></div><strong>50%</strong></div><div class="skill-progress" role="progressbar" aria-label="English 50%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div></article>
             <article class="skill-card" style="--skill-level: 70; --skill-color: #7dd3b0"><div class="skill-card-head"><span class="skill-icon">JP</span><div><h3 data-i18n="languageJapanese">Japanese</h3><p data-i18n="skillsLanguageLabel">Language ability</p></div><strong>70%</strong></div><div class="skill-progress" role="progressbar" aria-label="Japanese 70%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><span></span></div></article>
-            <article class="skill-card" style="--skill-level: 80; --skill-color: #9d8de3"><div class="skill-card-head"><span class="skill-icon">KR</span><div><h3 data-i18n="languageKorean">Korean</h3><p data-i18n="skillsLanguageLabel">Language ability</p></div><strong>80%</strong></div><div class="skill-progress" role="progressbar" aria-label="Korean 80%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span></span></div></article>
+            <article class="skill-card" style="--skill-level: 100; --skill-color: #9d8de3"><div class="skill-card-head"><span class="skill-icon">KR</span><div><h3 data-i18n="languageKorean">Korean</h3><p data-i18n="skillsLanguageLabel">Language ability</p></div><strong>100%</strong></div><div class="skill-progress" role="progressbar" aria-label="Korean 100%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span></span></div></article>
           </div>
         </section>
 
-        <section class="skill-category reveal">
-          <div class="skill-category-heading"><span>04</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsDesign">Game Design</h2></div></div>
+        <section class="skill-category reveal" data-detail-category="4">
+          <div class="skill-category-heading"><span>05</span><div><p class="eyebrow" data-i18n="skillsCategory">Skills</p><h2 data-i18n="skillsDesign">Game Design</h2></div></div>
           <div class="design-skill-grid">
             <article class="design-skill-card"><span class="skill-icon">EQ</span><div><h3 data-i18n="skillEquipmentTitle">Equipment &amp; Skill Design</h3><p data-i18n="skillEquipmentText">Designing equipment roles, values, progression, and skill combinations.</p></div></article>
             <article class="design-skill-card"><span class="skill-icon">GD</span><div><h3 data-i18n="skillGameplayTitle">Gameplay Design</h3><p data-i18n="skillGameplayText">Designing rules, progression, rewards, and repeatable gameplay loops.</p></div></article>
+            <article class="design-skill-card"><span class="skill-icon">UX</span><div><h3 data-i18n="skillUiUxTitle">UI / UX Design</h3><p data-i18n="skillUiUxText">Designing screen structure and interaction flow so information is easy to understand.</p></div></article>
+            <article class="design-skill-card"><span class="skill-icon">BL</span><div><h3 data-i18n="skillBalanceTitle">Game Balance</h3><p data-i18n="skillBalanceText">Tuning values to keep the difficulty curve consistent throughout the game.</p></div></article>
           </div>
         </section>
-        <section class="skill-detail-section reveal" aria-labelledby="skills-detail-heading"><p class="section-kicker" data-i18n="skillsDetailKicker">スキル詳細</p><h2 id="skills-detail-heading" data-i18n="skillsDetailTitle">制作経験と対応できる内容</h2><p class="skill-detail-lead" data-i18n="skillsDetailLead">使用経験、制作形態、対応できる内容をカテゴリごとにまとめています。</p><div id="skills-details"></div></section>
       </div></section>
     </main>
-    <div id="site-widgets"></div><div id="site-footer"></div><script src="/script.js?v=skills-detail-1"></script>
+    <div id="site-widgets"></div><div id="site-footer"></div><script src="/script.js?v=skills-merged-1"></script>
   </body>
 </html>
