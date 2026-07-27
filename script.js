@@ -88,7 +88,7 @@ const translations = {
     statCommercialText: "公開・運営・収益化を意識した作品制作を経験。",
     statRevenueNumber: "約420万円",
     statRevenue: "Revenue / results",
-    statRevenueText: "作品の成果を数値で追いながら改善。", revenueKicker: "収益実績", revenueTitle: "作品別の収益", revenueLead: "中国人民元を基準に、現在の表示言語の通貨へ概算換算しています。", revenueWork1: "薄荷茶と不思議な世界の冒険", revenueWork1Status: "運営中", revenueAmount1: "約110万円", revenueWork2: "竜殺しの少女", revenueAmount2: "約22万円", revenueWork3: "Warcraft Summon 1 & 2", revenueAmount3: "約66万円", revenueWork4: "ドラゴンだって魔王になりたい！", revenueAmount4: "約220万円",
+    statRevenueText: "作品の成果を数値で追いながら改善。", revenueKicker: "収益実績", revenueTitle: "作品別の収益", revenueLead: "中国人民元を基準に、現在の表示言語の通貨へ概算換算しています。", revenueWork1: "薄荷茶と不思議な世界の冒険", revenueWork1Status: "運営中", revenueAmount1: "約110万円", revenueWork2: "竜殺しの少女", revenueAmount2: "約22万円", revenueWork3: "魔獣召喚１&2", revenueAmount3: "約66万円", revenueWork4: "ドラゴンだって魔王になりたい！", revenueAmount4: "約220万円",
     skillsTitle: "Skills | Game Creator Portfolio",
     skillsKicker: "My / Skills",
     skillsHeading: "Tools & Skills",
