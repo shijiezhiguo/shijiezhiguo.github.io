@@ -795,6 +795,26 @@ main,
   gap: 8px;
 }
 
+.revenue-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.revenue-platform {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 26px;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid rgba(134, 167, 230, 0.56);
+  border-radius: 6px;
+  background: rgba(132, 184, 245, 0.16);
+  color: #4a79b8;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
 .revenue-card h3 {
   margin: 0;
   font-size: 1.1rem;
